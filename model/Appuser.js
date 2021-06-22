@@ -14,6 +14,8 @@ const esquemaAppUser = new Schema({
     specialty: String,
     rol: String,
     patients: [{ type: Schema.Types.ObjectId, ref: "Patient" }],
+    appointments: [{ type: Schema.Types.ObjectId, ref: "Appointment"}]
+
     
 });
 

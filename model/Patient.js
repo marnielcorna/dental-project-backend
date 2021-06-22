@@ -11,7 +11,7 @@ const esquemaPatient = new Schema({
     address: String,
     city: String,
     postalcode: String,
-    appointments: [{ type: Schema.Types.ObjectId, ref: "Appointment"}]
+    
 });
 
 const Patient = mongoose.model("Patient", esquemaPatient);

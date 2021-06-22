@@ -4,12 +4,13 @@ const express = require("express");
 const user = require("./routes/user");
 require ("./config/db");
 const privateroutes = require("./routes/privateroutes");
+const authentication = require("./routes/authentication");
 
 
 const app = express();
 
 //PUERTO
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 4000;
 
 //Middleware
 app.use(express.json());
@@ -27,7 +28,9 @@ app.get("/",(req, res) => {
 app.use ("/user", user);
 
 app.use ("/", privateroutes);
+app.use("/", authentication)
 
 app.listen(PORT, (req, res) => {
-    console.log(`Servidor Funcionando en ${PORT}`);
+    console.log(`Server started at port ${PORT}`);
 });
+
