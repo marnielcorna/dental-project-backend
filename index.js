@@ -1,7 +1,7 @@
 
 const express = require("express");
 
-const user = require("./routes/user");
+
 require ("./config/db");
 const privateroutes = require("./routes/privateroutes");
 const authentication = require("./routes/authentication");
@@ -25,7 +25,7 @@ app.get("/",(req, res) => {
  * Router - /user/*
  * Method - *
  */
-app.use ("/user", user);
+
 
 app.use ("/", privateroutes);
 app.use("/", authentication)

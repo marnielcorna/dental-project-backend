@@ -76,10 +76,9 @@ authRoutes.post("/signup", async (req, res) => {
 });
 
 authRoutes.post("/login", async (req, res) => {
-  let name = req.body.user;
-  let pass = req.body.pass;
-  let role = req.body.role;
-  let user = await User.findOne({ username: name }).then((userFound) => {
+  let username = req.body.username;
+  let password = req.body.password;
+  let user = await User.findOne({ username: username }).then((userFound) => {
     return userFound;
   });
 
@@ -91,7 +90,7 @@ authRoutes.post("/login", async (req, res) => {
     });
     return;
   }
-  let passwordIsValid = await bcrypt.compare(pass, user.password);
+  let passwordIsValid = await bcrypt.compare(password, user.password);
 
   if (passwordIsValid == false) {
     res.send({
@@ -101,7 +100,7 @@ authRoutes.post("/login", async (req, res) => {
     });
     return;
   }
-  const newToken = jwt.sign({ id: user.id, role: role}, process.env.SECRET_WORD, {
+  const newToken = jwt.sign({ id: user.id, role: user.role}, process.env.SECRET_WORD, {
     expiresIn: expirationTime,
   });
   res.send({

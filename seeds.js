@@ -14,7 +14,7 @@ let users = [
     identification: "X123456W",
     name: "Marcos",
     username: "marcos30",
-    password: "",
+    password: "12345678",
     lastname: "Cortez",
     age: "31",
     gender: "male",
@@ -28,7 +28,7 @@ let users = [
     identification: "X111111W",
     name: "Eduardo",
     username: "eduardo30",
-    password: "",
+    password: "87654321",
     lastname: "Developer",
     age: "31",
     gender: "male",
@@ -42,7 +42,7 @@ let users = [
     identification: "X2222222W",
     name: "Marta",
     username: "marta30",
-    password: "",
+    password: "123456789",
     lastname: "Gonzales",
     age: "30",
     gender: "female",
@@ -120,7 +120,7 @@ let appointments = [
   },
 ];
 
-let weakPasswords = ["123456", "456789", "654321"];
+let weakPasswords = [users[0].password, users[1].password, users[2].password];
 let hashedPasswords = [];
 
 weakPasswords.forEach((weakpass) => {

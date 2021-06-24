@@ -10,10 +10,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-router.get("/home", async (req, res) => {
+router.get("/homeadmin", async (req, res) => {
   let mytoken = req.headers.token;
-  let user = await tokenValidation(res, mytoken)
-  res.send("la ruta ha llegado.")
+  let role = "administrator";
+  let user = await tokenValidation(res, mytoken, role);
+  res.send(user);
   
 });
 
