@@ -12,7 +12,7 @@ const esquemaAppUser = new Schema({
     account: String,
     membershipNumber: Number,
     specialty: String,
-    rol: String,
+    role: String,
     patients: [{ type: Schema.Types.ObjectId, ref: "Patient" }],
     appointments: [{ type: Schema.Types.ObjectId, ref: "Appointment"}]
 

@@ -78,6 +78,7 @@ authRoutes.post("/signup", async (req, res) => {
 authRoutes.post("/login", async (req, res) => {
   let name = req.body.user;
   let pass = req.body.pass;
+  let role = req.body.role;
   let user = await User.findOne({ username: name }).then((userFound) => {
     return userFound;
   });
@@ -100,7 +101,7 @@ authRoutes.post("/login", async (req, res) => {
     });
     return;
   }
-  const newToken = jwt.sign({ id: user.id }, process.env.SECRET_WORD, {
+  const newToken = jwt.sign({ id: user.id, role: role}, process.env.SECRET_WORD, {
     expiresIn: expirationTime,
   });
   res.send({

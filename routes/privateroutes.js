@@ -4,21 +4,26 @@ const AppUser = require("../model/Appuser");
 const Patient = require("../model/Patient");
 const Appointment = require("../model/Appointment");
 const app = express();
+const tokenValidation = require("../functions/tokenval");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-router.get("/home/:userId", async (req, res) => {
-  let id = req.params.userId;
-  let user = await AppUser.findById(id).populate("patients")
-  res.send(user);
+
+router.get("/home", async (req, res) => {
+  let mytoken = req.headers.token;
+  let user = await tokenValidation(res, mytoken)
+  res.send("la ruta ha llegado.")
+  
 });
 
-router.get("/users", (req, res) => {
-  AppUser.find().then((userid) => {
-    res.send(userid);
-    console.log("hola users");
-  });
+router.get("/users", async (req, res) => {
+  let mytoken = req.headers.token;
+  let user = await tokenValidation (res, mytoken);
+  if (!user) {
+    return;
+  }
+  res.send(user);
 });
 
 router.get("/patients", (req, res) => {
