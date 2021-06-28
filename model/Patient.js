@@ -11,6 +11,7 @@ const esquemaPatient = new Schema({
     address: String,
     city: String,
     postalcode: String,
+    appointment: [{ type: Schema.Types.ObjectId, ref: "Appointment"}]
     
 });
 

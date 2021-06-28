@@ -24,13 +24,9 @@ let tokenValidation = async (response, token, role) => {
     });
     return;
   }
- 
-  let user = await User.findById(validationResult.id, { password: 0 }).then(
-    (userFound) => {
-      return userFound;
-    }
-  );
 
+  let user = await User.findById(validationResult.id, { password: 0 })
+    .populate("appointments").populate("patients");
   if (!user) {
     response.send({
       auth: false,

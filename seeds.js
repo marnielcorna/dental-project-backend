@@ -23,6 +23,8 @@ let users = [
     specialty: "Technician",
     role: "administrator",
     patients: ["60ca0675f92ac13e1c5d1234"],
+    appointments:["60ca0675f92ac13e1c5d8888"]
+
   },
   {
     identification: "X111111W",
@@ -35,22 +37,24 @@ let users = [
     account: "####",
     membershipNumber: "1010102020",
     specialty: "Technician",
-    role: "AppUser",
+    role: "user",
     patients: ["60ca0675f92ac13e1c5d4321"],
+    appointments: ["60ca0675f92ac13e1c5d1111"]
   },
   {
     identification: "X2222222W",
     name: "Marta",
     username: "marta30",
     password: "123456789",
-    lastname: "Gonzales",
+    lastname: "García",
     age: "30",
     gender: "female",
     account: "####",
     membershipNumber: "80808080",
     specialty: "Hygienist",
-    role: "AppUser",
+    role: "user",
     patients: ["60ca0675f92ac13e1c5d4567"],
+    appointments: ["60ca0675f92ac13e1c5d2222"]
   },
 ];
 
@@ -66,7 +70,7 @@ let patients = [
     address: "C/ calle del centro",
     city: "Zaragoza",
     postalcode: "50001",
-    appointments: ["60ca0675f92ac13e1c5d8888"],
+    appointment: ["60ca0675f92ac13e1c5d8888"],
   },
   {
     _id: "60ca0675f92ac13e1c5d4321",
@@ -79,7 +83,7 @@ let patients = [
     address: "C/ les feulles",
     city: "Barcelona",
     postalcode: "20001",
-    appointments: ["60ca0675f92ac13e1c5d1111"],
+    appointment: ["60ca0675f92ac13e1c5d1111"],
   },
   {
     _id: "60ca0675f92ac13e1c5d4567",
@@ -92,7 +96,7 @@ let patients = [
     address: "C/ alfalfa",
     city: "Zaragoza",
     postalcode: "50001",
-    appointments: ["60ca0675f92ac13e1c5d2222"],
+    appointment: ["60ca0675f92ac13e1c5d2222"],
   },
 ];
 
@@ -103,6 +107,8 @@ let appointments = [
     hour: "16:00",
     description: "Extraction",
     treatment: "",
+    patient:["60ca0675f92ac13e1c5d1234"]
+    
   },
   {
     _id: "60ca0675f92ac13e1c5d1111",
@@ -110,6 +116,7 @@ let appointments = [
     hour: "10:15",
     description: "Teeth cleanning",
     treatment: "",
+    patient:["60ca0675f92ac13e1c5d4321"]
   },
   {
     _id: "60ca0675f92ac13e1c5d2222",
@@ -117,6 +124,7 @@ let appointments = [
     hour: "12:00",
     description: "Consultation",
     treatment: "",
+    patient: ["60ca0675f92ac13e1c5d4567"]
   },
 ];
 

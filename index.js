@@ -28,7 +28,7 @@ app.get("/",(req, res) => {
 
 
 app.use ("/", privateroutes);
-app.use("/", authentication)
+app.use("/", authentication);
 
 app.listen(PORT, (req, res) => {
     console.log(`Server started at port ${PORT}`);

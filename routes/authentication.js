@@ -7,13 +7,14 @@ const bcrypt = require("bcrypt");
 const salt = bcrypt.genSaltSync(10);
 const minPassLength = 8;
 const expirationTime = 1500;
-
+const Appointment = require("../model/Appointment");
 const User = require("../model/Appuser");
 
 authRoutes.post("/signup", async (req, res) => {
   const user = req.body.user;
   const pass = req.body.pass;
-  if (!user || !pass) {
+  const role = req.body.role;
+  if (!user || !pass || !role) {
     res.send({
       auth: false,
       token: null,
@@ -52,7 +53,7 @@ authRoutes.post("/signup", async (req, res) => {
   let newUser = await User.create({
     username: user,
     password: hashPass,
-    recipes: [],
+    role: role
   })
     .then((createdUser) => {
       return createdUser;
@@ -75,7 +76,7 @@ authRoutes.post("/signup", async (req, res) => {
   });
 });
 
-authRoutes.post("/login", async (req, res) => {
+authRoutes.get("/login", async (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
   let user = await User.findOne({ username: username }).then((userFound) => {
