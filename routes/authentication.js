@@ -18,7 +18,7 @@ authRoutes.post("/signup", async (req, res) => {
     res.send({
       auth: false,
       token: null,
-      message: "Provide an username and password",
+      message: "Provide an username, password and role ",
     });
     return;
   }

@@ -1,11 +1,12 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
+// mongoose.set('useFindAndModify', false); 
 
 
   mongoose
   .connect(
     `mongodb+srv://${process.env.USER_ID}:${process.env.PASSWORD_ID}@dental.9t90j.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
-    { useNewUrlParser: true, useUnifiedTopology: true}
+    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}
   )
   .then((x) => {
     console.log(
